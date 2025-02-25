@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { CiBookmark } from "react-icons/ci";
 
-const Product = ({ product, handleBookMarks }) => {
+const Product = ({ product, handleBookMarks, handleReating }) => {
     const { cover, author, title, author_img, posted_date, reading_time, hashtags } = product;
     return (
         <div className=' mb-16 border-b-2 border-gray-400 py-5'>
@@ -30,7 +30,7 @@ const Product = ({ product, handleBookMarks }) => {
                         hashtags.map((teg, idx) => <span className='p-2 text-base text-gray-400' key={idx}>#{teg}</span>)
                     }
                 </p>
-
+                <h3 onClick={() => handleReating(reading_time)} className='underline text-blue-800 font-semibold text-lg cursor-pointer'>Mark as read</h3>
             </div>
         </div>
     );
@@ -38,6 +38,7 @@ const Product = ({ product, handleBookMarks }) => {
 Product.propTypes = {
     product: PropTypes.object.isRequired,
     handleBookMarks: PropTypes.func.isRequired,
+    handleReating: PropTypes.func.isRequired,
 }
 
 export default Product;
