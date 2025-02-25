@@ -13,7 +13,7 @@ const BookMarks = ({ bookmarks, reating }) => {
                     <h3 className="font-semibold text-xl">Bookmarked Blogs : {bookmarks.length}</h3>
                 </div>
                 {
-                    bookmarks?.map(bookmark => <Bookmark key={bookmark.id} bookmark={bookmark}></Bookmark>)
+                    bookmarks?.map((bookmark, idx) => <Bookmark key={idx} bookmark={bookmark}></Bookmark>)
                 }
             </div>
         </div>

@@ -16,24 +16,29 @@ const Products = () => {
 
     const handleBookMarks = (product) => {
         const newBooks = [...bookmarks, product];
-        setBookMarks(newBooks)
+        setBookMarks(newBooks);
     };
 
-    const handleReating = time => {
+    const handleReating = ( time) => {
         const newTime = reating + time;
-        setReating(newTime)
+        setReating(newTime);
+    };
+    const  handleRemoveBookMarks = (id) =>{
+        const bookMarktPer = bookmarks.filter(pd => pd.id !== id);
+        setBookMarks(bookMarktPer)
+        
     }
-    console.log(reating)
     return (
         <div>
             <div className='grid grid-cols-1 md:grid-cols-12 gap-8'>
                 <div className='col-span-12 md:col-span-8'>
                     {
-                        products.map(product => <Product
-                            key={product.id}
+                        products.map((product, idx) => <Product
+                            key={idx}
                             product={product}
                             handleBookMarks={handleBookMarks}
                             handleReating={handleReating}
+                            handleRemoveBookMarks={handleRemoveBookMarks}
                         ></Product>)
                     }
                 </div>
