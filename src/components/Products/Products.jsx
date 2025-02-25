@@ -15,17 +15,26 @@ const Products = () => {
 
 
     const handleBookMarks = (product) => {
-        const newBooks = [...bookmarks, product];
-        setBookMarks(newBooks);
+        const isExistBookMarks = bookmarks.find(existBookMark => existBookMark.id === product.id);
+        
+        // jodi bookmarks a product ti add theke tahole add hobe na , r na thakle added hobe.
+        if(!isExistBookMarks){
+            const newBooks = [...bookmarks, product];
+            setBookMarks(newBooks);
+        }
+        else{
+            alert('Already added in bookmarks...! plz try another try')
+        }
     };
 
     const handleReating = ( time) => {
         const newTime = reating + time;
         setReating(newTime);
     };
+
     const  handleRemoveBookMarks = (id) =>{
-        const bookMarktPer = bookmarks.filter(pd => pd.id !== id);
-        setBookMarks(bookMarktPer)
+        const reamingBookMark = bookmarks.filter(pd => pd.id !== id);
+        setBookMarks(reamingBookMark)
         
     }
     return (
